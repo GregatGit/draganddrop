@@ -1,4 +1,4 @@
-const data = {
+export const initData = {
   items: {
     'item-1': {id: 'item-1', content: 'Lorem ipsum dolor sit amet, '},
     'item-2': {id: 'item-2', content: 'quis nostrud exercitation ullamco'},
