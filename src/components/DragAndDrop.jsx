@@ -12,7 +12,7 @@ const DragAndDrop = () => {
           const items = data.columns[columnId].itemIds.map(id => {
             return data.items[id]
           })
-          return <Column items={items} index={index} />
+          return <Column key={columnId} items={items} index={index} />
         })}
       </div>
     </div>

@@ -5,7 +5,7 @@ const Column = ({ title, items }) => {
   return (
     <div className="column">
       <h2>{title}</h2>
-      {items && items.map(item => <Item item={item.content} />)}
+      <ul>{items && items.map((item) => <Item key={item.id} item={item.content} />)}</ul>
     </div>
   )
 }

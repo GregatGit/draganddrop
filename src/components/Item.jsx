@@ -2,7 +2,7 @@ import React from 'react'
 
 const Item = ({ item }) => {
   return (
-    <li>
+    <li className="item">
       {item}
     </li>
   )
