@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './App.css'
+import './App.scss'
 import DragAndDrop from './components/DragAndDrop'
 
 function App() {

@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+
+  .main {
+    display: flex;
+  }
+
+  .column{
+    width: 250px;
+    height: 500px;
+    border: 2px solid black;
+  }
+}
