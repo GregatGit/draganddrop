@@ -14,7 +14,7 @@ const Column = ({ index, items, columnId }) => {
           ref={provided.innerRef}
         >
           <h2 {...provided.dragHandleProps}>{count}</h2>
-          <Droppable droppableId={columnId} type="point">
+          <Droppable droppableId={columnId} type="item">
             {(provided, snapshot) => (
               <ul ref={provided.innerRef} {...provided.droppableProps}>
                 {items &&

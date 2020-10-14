@@ -6,7 +6,6 @@ import { initData } from '../data'
 const DragAndDrop = () => {
   const [data, setData] = useState(initData)
   const onDragEnd = (result) => {
-    console.log('drag ended: ', result)
     const { destination, source, draggableId, type } = result
     
     if (!destination) return
@@ -24,8 +23,27 @@ const DragAndDrop = () => {
       setData(state)
       return
     }
+    const start = data.columns[source.droppableId]
+    const finish = data.columns[destination.droppableId]
 
+    if (start === finish) { //same column
+      const newItemIds = [...start.itemIds]
+      newItemIds.splice(source.index, 1)
+      newItemIds.splice(destination.index, 0, draggableId)
 
+      const newColumn = { ...start, itemIds: newItemIds }
+      const state = { ...data }
+      state.columns[newColumn.id] = newColumn
+      setData(state)
+      return
+    }
+
+    const [moving] = start.itemIds.splice(source.index, 1)
+    finish.itemIds.splice(destination.index, 0, moving)
+    const state = { ...data }
+    state.columns[source.droppableId].itemIds = start.itemIds
+    state.columns[destination.droppableId].itemIds = finish.itemIds
+    setData(state)
   }
   return (
     <div>
