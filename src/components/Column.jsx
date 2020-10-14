@@ -14,10 +14,17 @@ const Column = ({ index, items, columnId }) => {
           ref={provided.innerRef}
         >
           <h2 {...provided.dragHandleProps}>{count}</h2>
-          <ul>
-            {items &&
-              items.map((item) => <Item key={item.id} item={item.content} />)}
-          </ul>
+          <Droppable droppableId={columnId} type="point">
+            {(provided, snapshot) => (
+              <ul ref={provided.innerRef} {...provided.droppableProps}>
+                {items &&
+                  items.map((item, index) => (
+                    <Item key={item.id} item={item} index={index} />
+                  ))}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
         </div>
       )}
     </Draggable>
